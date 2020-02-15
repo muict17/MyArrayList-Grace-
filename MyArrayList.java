@@ -28,13 +28,16 @@ public class MyArrayList<T> {
 	//instance methods
 	//add operation 
 	public void add(T n) {
-		temp = (T[]) new Object[SIZE+1];
-		for (int i = 0; i < SIZE; i++) {
-			temp[i] = arr[i];
+		if (SIZE == count) {
+			temp = (T[]) new Object[SIZE + 1];
+			for (int i = 0; i < SIZE; i++) {
+				temp[i] = arr[i];
+			}
+			arr = temp;
+			SIZE++;
 		}
-		arr = temp;
-		arr[SIZE] = n;
-		SIZE++;
+		arr[count] = n;
+		count++;
 	}
 	
 	//remove operation
