@@ -2,10 +2,13 @@ public class MyArrayList<T> {
 	//instance variables
 	private T[] arr;
 	private T[] temp;
-	private int SIZE = 0;
+	private int SIZE;
+	private int count;
 	
 	//constructors
 	public MyArrayList() {
+		SIZE = 1;
+		count = 0;
 		arr = (T[]) new Object[SIZE];
 	}
 	
@@ -36,16 +39,15 @@ public class MyArrayList<T> {
 			arr = temp;
 			SIZE++;
 		}
-		arr[count] = n;
-		count++;
+		arr[count++] = n;
 	}
 	
 	//remove operation
 	public void remove(int n) {
-		for (int i = n; i < SIZE-1; i++) {
+		for (int i = n; i < SIZE - 1; i++) {
 			arr[i] = arr[i+1];
 		}
-		temp = (T[]) new Object[SIZE-1];
+		temp = (T[]) new Object[SIZE - 1];
 		for (int i = 0; i < SIZE-1; i++) {
 			temp[i] = arr[i];
 		}
